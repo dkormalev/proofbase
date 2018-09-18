@@ -523,6 +523,10 @@ QNetworkRequest RestClientPrivate::createNetworkRequest(const QUrl &url, const Q
         break;
     }
 
+    qDebug() << "Headers for" << url << ":";
+    for (const auto &header : result.rawHeaderList())
+        qDebug() << header << ":" << result.rawHeader(header);
+
     return result;
 }
 
